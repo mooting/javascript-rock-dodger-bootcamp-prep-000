@@ -56,6 +56,21 @@ function createRock(x) {
 
   rock.style.top = top
   console.log(`rock created, left: ${rock.style.left}, top: ${rock.style.top}`)
+
+  function move(el) {
+  var top = 0
+ 
+  function step() {
+    el.style.top = `${top += 2}px`
+ 
+    if (top < 200) {
+      window.requestAnimationFrame(step)
+    }
+  }
+ 
+  window.requestAnimationFrame(step)
+}
+
   /**
    * Now that we have a rock, we'll need to append
    * it to GAME and move it downwards.
